@@ -5,26 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fashion Destination</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f5f5;
+    * {
+      box-sizing: border-box;
     }
 
-    /* Header / Profile Section */
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
     header {
-      background-color: #222;
+      background-color: #1a1a1a;
       color: white;
       padding: 1rem 2rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     .logo {
       font-size: 1.8rem;
       font-weight: bold;
-      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
     }
 
     nav button {
@@ -32,47 +41,47 @@
       border: none;
       color: white;
       font-size: 1rem;
-      margin-left: 1rem;
       cursor: pointer;
-      transition: color 0.3s;
+      padding: 0.5rem 1rem;
+      transition: background 0.3s;
     }
 
     nav button:hover {
-      color: #ff6f61;
+      background-color: #333;
+      border-radius: 5px;
     }
 
-    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1rem;
       background: linear-gradient(to right, #ff9a9e, #fad0c4);
-      color: #333;
     }
 
     .hero h1 {
-      margin-bottom: 0.5rem;
+      margin: 0;
+      font-size: 2rem;
     }
 
     .hero p {
       font-size: 1.1rem;
+      margin-top: 0.5rem;
     }
 
-    /* Product Grid */
     #product-section {
-      padding: 2rem;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 1.5rem;
+      padding: 2rem;
     }
 
     .product-card {
-      background: white;
+      background-color: #fff;
       border-radius: 10px;
-      overflow: hidden;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
+      transition: transform 0.2s;
     }
 
     .product-card:hover {
@@ -95,21 +104,29 @@
     }
 
     .product-info p {
-      margin: 0.3rem 0;
       font-size: 0.95rem;
+      margin: 0.3rem 0;
       color: #555;
     }
 
-    .price {
+    .product-info .price {
       font-weight: bold;
       color: #e91e63;
       margin-top: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header / Profile -->
+  <!-- Header -->
   <header>
     <div class="logo">Fashion Destination</div>
     <nav>
@@ -121,82 +138,82 @@
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero Section -->
   <section class="hero">
-    <h1>Discover Affordable Quality</h1>
-    <p>Browse the latest collections across Fashion, Home, Beauty & Kids</p>
+    <h1>Browse the Latest Collections</h1>
+    <p>Find quality pieces at affordable prices – Fashion, Home, Beauty, Kids & more</p>
   </section>
 
-  <!-- Product Section -->
+  <!-- Products Section -->
   <section id="product-section"></section>
 
-  <!-- JavaScript for Interactivity -->
+  <!-- JavaScript -->
   <script>
     const products = {
       fashion: [
         {
-          name: "Stylish Jacket",
+          name: "Denim Jacket",
           price: "₹1,999",
-          details: "Warm and trendy jacket for winter wear.",
-          img: "https://via.placeholder.com/300x200?text=Jacket"
+          details: "Trendy jacket for casual wear.",
+          img: "https://via.placeholder.com/300x200?text=Denim+Jacket"
         },
         {
-          name: "Classic Jeans",
-          price: "₹1,299",
-          details: "Comfort-fit, high-quality denim jeans.",
-          img: "https://via.placeholder.com/300x200?text=Jeans"
+          name: "Formal Shirt",
+          price: "₹1,199",
+          details: "Perfect for office or formal events.",
+          img: "https://via.placeholder.com/300x200?text=Formal+Shirt"
         }
       ],
       home: [
         {
-          name: "Decorative Lamp",
-          price: "₹899",
-          details: "Modern LED lamp for cozy lighting.",
-          img: "https://via.placeholder.com/300x200?text=Lamp"
+          name: "Table Lamp",
+          price: "₹799",
+          details: "Modern lamp with LED lighting.",
+          img: "https://via.placeholder.com/300x200?text=Table+Lamp"
         },
         {
-          name: "Wall Art Frame",
+          name: "Wall Frame",
           price: "₹499",
-          details: "Stylish art frame to elevate interiors.",
-          img: "https://via.placeholder.com/300x200?text=Wall+Art"
+          details: "Artistic frame for home decor.",
+          img: "https://via.placeholder.com/300x200?text=Wall+Frame"
         }
       ],
       beauty: [
         {
-          name: "Herbal Face Cream",
-          price: "₹699",
-          details: "Made with natural ingredients for glowing skin.",
-          img: "https://via.placeholder.com/300x200?text=Face+Cream"
+          name: "Face Serum",
+          price: "₹899",
+          details: "Glowing skin with herbal ingredients.",
+          img: "https://via.placeholder.com/300x200?text=Face+Serum"
         },
         {
-          name: "Lipstick Combo",
-          price: "₹399",
-          details: "Set of 3 shades with matte finish.",
-          img: "https://via.placeholder.com/300x200?text=Lipstick"
+          name: "Lipstick Set",
+          price: "₹499",
+          details: "Matte finish in 3 shades.",
+          img: "https://via.placeholder.com/300x200?text=Lipstick+Set"
         }
       ],
       kids: [
         {
-          name: "Cartoon T-Shirt",
+          name: "Cartoon Tee",
           price: "₹299",
-          details: "Soft cotton T-shirt with fun designs.",
-          img: "https://via.placeholder.com/300x200?text=T-shirt"
+          details: "Fun prints for kids aged 4-8.",
+          img: "https://via.placeholder.com/300x200?text=Cartoon+Tee"
         },
         {
-          name: "Building Blocks Set",
+          name: "Puzzle Blocks",
           price: "₹599",
-          details: "Educational toy for kids aged 3+.",
-          img: "https://via.placeholder.com/300x200?text=Blocks"
+          details: "Boosts creativity and learning.",
+          img: "https://via.placeholder.com/300x200?text=Puzzle+Blocks"
         }
       ]
     };
 
-    const section = document.getElementById("product-section");
-    const navButtons = document.querySelectorAll("nav button");
+    const productSection = document.getElementById("product-section");
 
-    function renderProducts(category) {
-      section.innerHTML = '';
-      const items = category === 'all'
+    function displayProducts(category) {
+      productSection.innerHTML = "";
+
+      const items = category === "all"
         ? Object.values(products).flat()
         : products[category] || [];
 
@@ -204,26 +221,26 @@
         const card = document.createElement("div");
         card.className = "product-card";
         card.innerHTML = `
-          <img src="${item.img}" alt="${item.name}">
+          <img src="${item.img}" alt="${item.name}" />
           <div class="product-info">
             <h3>${item.name}</h3>
             <p>${item.details}</p>
             <p class="price">${item.price}</p>
           </div>
         `;
-        section.appendChild(card);
+        productSection.appendChild(card);
       });
     }
 
-    navButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const category = button.dataset.category;
-        renderProducts(category);
+    // Initial load
+    window.onload = () => displayProducts("all");
+
+    // Category filters
+    document.querySelectorAll("nav button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        displayProducts(btn.dataset.category);
       });
     });
-
-    // Load all products on first load
-    window.onload = () => renderProducts('all');
   </script>
 
 </body>
