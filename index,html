@@ -3,244 +3,176 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fashion Destination</title>
+  <title>Your Fashion Destination</title>
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background-color: #f4f4f4;
+      background-color: #f5f5f5;
       color: #333;
     }
 
     header {
-      background-color: #1a1a1a;
-      color: white;
+      background-color: #222;
+      color: #fff;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
     }
 
-    .logo {
-      font-size: 1.8rem;
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
       font-weight: bold;
     }
 
-    nav {
-      display: flex;
-      gap: 1rem;
-    }
-
-    nav button {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      padding: 0.5rem 1rem;
-      transition: background 0.3s;
-    }
-
-    nav button:hover {
-      background-color: #333;
-      border-radius: 5px;
+    nav a:hover {
+      text-decoration: underline;
     }
 
     .hero {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      position: relative;
+      width: 100%;
+      max-height: 500px;
+      overflow: hidden;
     }
 
-    .hero h1 {
-      margin: 0;
-      font-size: 2rem;
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
     }
 
-    .hero p {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
+    .hero img.active {
+      display: block;
     }
 
-    #product-section {
+    .sections {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
       padding: 2rem;
     }
 
-    .product-card {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+    .section {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       transition: transform 0.2s;
     }
 
-    .product-card:hover {
+    .section:hover {
       transform: translateY(-5px);
     }
 
-    .product-card img {
+    .section img {
       width: 100%;
-      height: 180px;
-      object-fit: cover;
+      border-radius: 6px;
     }
 
-    .product-info {
-      padding: 1rem;
-      flex-grow: 1;
+    .section h2 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+      color: #222;
     }
 
-    .product-info h3 {
-      margin: 0.5rem 0;
-    }
-
-    .product-info p {
+    .section p {
       font-size: 0.95rem;
-      margin: 0.3rem 0;
       color: #555;
     }
 
-    .product-info .price {
-      font-weight: bold;
-      color: #e91e63;
-      margin-top: 0.5rem;
+    footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
     }
 
     @media (max-width: 600px) {
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 1rem;
+      header, footer {
+        text-align: center;
+        flex-direction: column;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
-    <div class="logo">Fashion Destination</div>
+    <h1>StyleHaven</h1>
     <nav>
-      <button data-category="all">All</button>
-      <button data-category="fashion">Fashion</button>
-      <button data-category="home">Home</button>
-      <button data-category="beauty">Beauty</button>
-      <button data-category="kids">Kids</button>
+      <a href="#fashion">Fashion</a>
+      <a href="#home">Home</a>
+      <a href="#beauty">Beauty</a>
+      <a href="#kids">Kids</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Browse the Latest Collections</h1>
-    <p>Find quality pieces at affordable prices – Fashion, Home, Beauty, Kids & more</p>
+  <div class="hero">
+    <img src="https://source.unsplash.com/1600x500/?fashion" class="active" alt="Fashion Banner">
+    <img src="https://source.unsplash.com/1600x500/?home-decor" alt="Home Banner">
+    <img src="https://source.unsplash.com/1600x500/?beauty" alt="Beauty Banner">
+    <img src="https://source.unsplash.com/1600x500/?kids-fashion" alt="Kids Banner">
+  </div>
+
+  <section class="sections">
+    <div class="section" id="fashion">
+      <img src="https://source.unsplash.com/400x300/?fashion,model" alt="Fashion">
+      <h2>Fashion</h2>
+      <p>Discover the latest trends and timeless pieces curated for your unique style. From streetwear to haute couture, we’ve got you covered.</p>
+    </div>
+    <div class="section" id="home">
+      <img src="https://source.unsplash.com/400x300/?interior,home" alt="Home">
+      <h2>Home</h2>
+      <p>Transform your space into a sanctuary with our collection of modern and cozy home decor essentials.</p>
+    </div>
+    <div class="section" id="beauty">
+      <img src="https://source.unsplash.com/400x300/?makeup,beauty" alt="Beauty">
+      <h2>Beauty</h2>
+      <p>Elevate your routine with high-quality skincare and makeup products from the world’s top beauty brands.</p>
+    </div>
+    <div class="section" id="kids">
+      <img src="https://source.unsplash.com/400x300/?kids,clothing" alt="Kids">
+      <h2>Kids</h2>
+      <p>Adorable, durable, and trendy — shop clothes and accessories that your little ones will love.</p>
+    </div>
   </section>
 
-  <!-- Products Section -->
-  <section id="product-section"></section>
+  <footer>
+    <p>&copy; 2025 StyleHaven. All rights reserved.</p>
+  </footer>
 
-  <!-- JavaScript -->
   <script>
-    const products = {
-      fashion: [
-        {
-          name: "Denim Jacket",
-          price: "₹1,999",
-          details: "Trendy jacket for casual wear.",
-          img: "https://via.placeholder.com/300x200?text=Denim+Jacket"
-        },
-        {
-          name: "Formal Shirt",
-          price: "₹1,199",
-          details: "Perfect for office or formal events.",
-          img: "https://via.placeholder.com/300x200?text=Formal+Shirt"
-        }
-      ],
-      home: [
-        {
-          name: "Table Lamp",
-          price: "₹799",
-          details: "Modern lamp with LED lighting.",
-          img: "https://via.placeholder.com/300x200?text=Table+Lamp"
-        },
-        {
-          name: "Wall Frame",
-          price: "₹499",
-          details: "Artistic frame for home decor.",
-          img: "https://via.placeholder.com/300x200?text=Wall+Frame"
-        }
-      ],
-      beauty: [
-        {
-          name: "Face Serum",
-          price: "₹899",
-          details: "Glowing skin with herbal ingredients.",
-          img: "https://via.placeholder.com/300x200?text=Face+Serum"
-        },
-        {
-          name: "Lipstick Set",
-          price: "₹499",
-          details: "Matte finish in 3 shades.",
-          img: "https://via.placeholder.com/300x200?text=Lipstick+Set"
-        }
-      ],
-      kids: [
-        {
-          name: "Cartoon Tee",
-          price: "₹299",
-          details: "Fun prints for kids aged 4-8.",
-          img: "https://via.placeholder.com/300x200?text=Cartoon+Tee"
-        },
-        {
-          name: "Puzzle Blocks",
-          price: "₹599",
-          details: "Boosts creativity and learning.",
-          img: "https://via.placeholder.com/300x200?text=Puzzle+Blocks"
-        }
-      ]
-    };
+    // Simple image carousel
+    const images = document.querySelectorAll('.hero img');
+    let index = 0;
 
-    const productSection = document.getElementById("product-section");
-
-    function displayProducts(category) {
-      productSection.innerHTML = "";
-
-      const items = category === "all"
-        ? Object.values(products).flat()
-        : products[category] || [];
-
-      items.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "product-card";
-        card.innerHTML = `
-          <img src="${item.img}" alt="${item.name}" />
-          <div class="product-info">
-            <h3>${item.name}</h3>
-            <p>${item.details}</p>
-            <p class="price">${item.price}</p>
-          </div>
-        `;
-        productSection.appendChild(card);
-      });
+    function showNextImage() {
+      images[index].classList.remove('active');
+      index = (index + 1) % images.length;
+      images[index].classList.add('active');
     }
 
-    // Initial load
-    window.onload = () => displayProducts("all");
-
-    // Category filters
-    document.querySelectorAll("nav button").forEach(btn => {
-      btn.addEventListener("click", () => {
-        displayProducts(btn.dataset.category);
-      });
-    });
+    setInterval(showNextImage, 4000);
   </script>
 
 </body>
